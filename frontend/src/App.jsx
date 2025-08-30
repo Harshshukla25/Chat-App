@@ -10,7 +10,6 @@ import Home from './pages/Home'
 import Profile from './pages/Profile'
 import getOtherUsers from './customHooks/getOtherUsers'
 import {io} from "socket.io-client"
-import { serverUrl } from './main'
 import { setOnlineUsers, setSocket } from './redux/userSlice.js'
 
 const App = () => {
@@ -22,7 +21,8 @@ const App = () => {
 
 useEffect(()=>{
   if(userData){
-      const socketio=io(`${serverUrl}`,{
+      const socketio=io("https://chat-app-0fpq.onrender.com",{
+        withCredentials:true,
     query:{
       userId:userData?._id
     }
