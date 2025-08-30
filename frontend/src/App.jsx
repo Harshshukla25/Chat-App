@@ -14,7 +14,7 @@ import { setOnlineUsers, setSocket } from './redux/userSlice.js'
 
 const App = () => {
   getCurrentUser();
-  getOtherUsers
+  getOtherUsers ();
   const {userData,socket,onlineUsers}=useSelector(state=>state.user)
   const dispatch=useDispatch()
   const { darkMode } = useSelector((state) => state.ui);

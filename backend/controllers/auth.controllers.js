@@ -112,7 +112,7 @@ export const forgotPassword = async (req, res) => {
     // Generate reset token (valid for 15min)
     const resetToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "15m" });
 
-    // const resetUrl = `http://localhost:5173/reset-password/${resetToken}`;
+    
     const resetUrl = `https://chat-app-henna-one.vercel.app/reset-password/${resetToken}`
 
     // Send email

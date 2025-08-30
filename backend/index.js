@@ -4,7 +4,6 @@ import connectDb from "./config/db.js"
 import authRouter from "./routes/auth.routes.js"
 import cookieParser from "cookie-parser"
 dotenv.config()
-console.log("Gemini Key starts with:", process.env.GEMINI_API_KEY);
 import cors from "cors"
 import userRouter from "./routes/user.routes.js"
 import messageRouter from "./routes/message.routes.js"
