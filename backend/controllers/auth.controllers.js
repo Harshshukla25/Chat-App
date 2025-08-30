@@ -46,8 +46,9 @@ export const signup= async(req,res)=>{
     res.cookie("token",token,{
         httpOnly:true,
         maxAge:7*24*60*60*1000,
-        sameSite:"Strict",
-        secure:false
+        secure:true,
+        sameSite:"None"
+        
     })
 
     return res.status(201).json(user)
@@ -79,8 +80,9 @@ export const login= async(req,res)=>{
     res.cookie("token",token,{
         httpOnly:true,
         maxAge:7*24*60*60*1000,
-        sameSite:"Strict",
-        secure:false
+        secure:true,
+        sameSite:"None"
+        
     })
 
     return res.status(200).json(user)
@@ -110,7 +112,8 @@ export const forgotPassword = async (req, res) => {
     // Generate reset token (valid for 15min)
     const resetToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "15m" });
 
-    const resetUrl = `http://localhost:5173/reset-password/${resetToken}`;
+    // const resetUrl = `http://localhost:5173/reset-password/${resetToken}`;
+    const resetUrl = `https://chat-app-henna-one.vercel.app/reset-password/${resetToken}`
 
     // Send email
     await sendEmail(
