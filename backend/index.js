@@ -15,7 +15,7 @@ const port= process.env.PORT || 5000
 
 
 app.use(cors({
-    origin:["http://localhost:5173","https://chat-app-0fpq.onrender.com"],
+    origin:["http://localhost:5173","https://chat-app-henna-one.vercel.app" ],
     credentials:true
 }))
 app.use(express.json())
